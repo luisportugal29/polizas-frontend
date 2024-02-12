@@ -1,0 +1,27 @@
+<div class="container">
+    <h3 class="title">Polizas de Faltantes</h3>
+    <p-button 
+     label="Agregar" 
+     icon="pi pi-plus" 
+     [raised]="true" 
+     [style]="{'margin-bottom': '5px'}"
+     [text]="true"
+     (onClick)="showForm = !showForm"
+     ></p-button>
+    <app-polizas-table 
+    class="add-button"
+    [polizas]="polizas"
+    (delete)="deletePoliza($event)"
+    (update)="showForm = true; selectedPoliza = $event"
+    >
+    </app-polizas-table>
+    <p-toast></p-toast>
+    <app-poliza-form
+    *ngIf="showForm"
+    [empleados]="empleados"
+    [poliza]="selectedPoliza"
+    (save)="handleSave($event)"
+    (showModal)="handleClean()"
+    >
+    </app-poliza-form>
+</div>

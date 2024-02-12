@@ -1,0 +1,38 @@
+<p-table [value]="polizas">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Cantidad</th>
+            <th>Articulo</th>
+            <th>Empleado</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-poliza>
+        <tr>
+            <td>{{poliza.id}}</td>
+            <td>{{poliza.cantidad}}</td>
+            <td>{{poliza.articulo.nombre}}</td>
+            <td>{{poliza.empleado.nombre}} {{poliza.empleado.apellido}}</td>
+            <td>{{poliza.fecha}}</td>
+            <td>
+                <p-button icon="pi pi-pencil" 
+                [rounded]="true" 
+                severity="primary"
+                [text]="true"
+                [raised]="true"
+                (onClick)="updatePoliza(poliza)"
+                ></p-button>
+                <p-button icon="pi pi-trash" 
+                [rounded]="true" 
+                severity="danger"
+                [text]="true"
+                [raised]="true" 
+                (onClick)="deletePoliza(poliza.id)"
+                ></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-confirmDialog></p-confirmDialog>

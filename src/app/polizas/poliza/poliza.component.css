@@ -1,0 +1,14 @@
+.container {
+    max-width: 60%;
+    margin: auto;
+}
+
+.add-button {
+    margin-bottom: 5px;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    color: #133C55;
+}

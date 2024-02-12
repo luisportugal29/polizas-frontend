@@ -1,0 +1,49 @@
+<div 
+class="main-container"
+(click)="onCloseModal($event)"
+>
+    <div class="subcontainer">
+    <p-card
+    header="Poliza"
+    >
+        <form class="form-container">
+            <span class="p-float-label item">
+                <p-inputNumber 
+                [(ngModel)]="cantidad"
+                [ngModelOptions]="{standalone: true}"
+                [min]="0"
+                ></p-inputNumber>
+                <label>Cantidad</label>
+            </span>
+            <span 
+            *ngIf="!isUpdate"
+            class="p-float-label item">
+                <input 
+                type="text" 
+                [(ngModel)]="sku"
+                [ngModelOptions]="{standalone: true}"
+                pInputText>
+                <label>Sku</label>
+            </span>
+            <div class="emp-cont">
+                    <p-dropdown
+                    placeholder="Selecciona empleado"
+                    [style]="{'width': '100%'}"
+                    [options]="empleados"
+                    optionLabel="nombre"
+                    [(ngModel)]="empleado"
+                    [ngModelOptions]="{standalone: true}"
+                    ></p-dropdown>
+                
+            </div>
+            <p-button
+            [label]="isUpdate ? 'Actualizar': 'Guardar'"
+            [text]="true"
+            [raised]="true"
+            (onClick)="onSave()"
+            >
+            </p-button>
+        </form>
+    </p-card>
+    </div>
+</div>
